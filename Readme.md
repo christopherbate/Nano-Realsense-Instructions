@@ -69,7 +69,7 @@ Or just copy the `.config` file from this repo into `O=/mnt/tegra`, overwriting 
 
 5. Note that the last two are for enabling USB RootFS if wanted later. Also need to copy "tegra21x_xusb_firmware" from `Linux_for_Tegra/rootfs/lib/firmware` to `/mnt/tegra/firmware`.
 
-5. Apply patches from this repo: `patch -p1 intel_suggested_patches.patch`
+5. Apply patches from this repo: `patch -p1 < intel_suggested_patches.patch`
 
 6. (still in the kernel source directory) `sudo make ARCH=arm64 O=/mnt/tegra silentoldconfig`
 
@@ -79,7 +79,7 @@ Or just copy the `.config` file from this repo into `O=/mnt/tegra`, overwriting 
 
 9. Get your L4T Nano SD card that you created before and mount it onto your system somehwere. You want the rootfs  to be accessible. Let's assume the mount point is `/mnt/SDCARD/`.
 
-10. Backup the original kernel Image: `sudo mv /mnt/tegra_sd/boot/Image /mnt/SDCARD/boot/Image.bk`
+10. Backup the original kernel Image: `sudo mv /mnt/SDCARD/boot/Image /mnt/SDCARD/boot/Image.bk`
 
 11. Copy kernel modules. From the kernel source directory: `sudo make ARCH=arm64 O=/mnt/tegra modules_install INSTALL_MOD_PATH=/mnt/SDCARD`
 
